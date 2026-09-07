@@ -1,10 +1,21 @@
 document.querySelectorAll("[data-project]").forEach((card) => {
   card.addEventListener("click", () => {
-    document.getElementById(`case-${card.dataset.project}`)?.showModal();
+    const dialog = document.getElementById(`case-${card.dataset.project}`);
+    dialog?.showModal();
+    requestAnimationFrame(() => {
+      dialog?.querySelector(".case-shell")?.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    });
   });
 });
 
 document.querySelectorAll(".case-study").forEach((dialog) => {
+  dialog.addEventListener("toggle", () => {
+    if (dialog.open) {
+      requestAnimationFrame(() => {
+        dialog.querySelector(".case-shell")?.scrollTo({ top: 0, left: 0, behavior: "auto" });
+      });
+    }
+  });
   dialog.querySelector(".close-case")?.addEventListener("click", () => dialog.close());
   dialog.addEventListener("click", (e) => {
     if (e.target === dialog) dialog.close();
