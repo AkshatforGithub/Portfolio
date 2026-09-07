@@ -35,7 +35,7 @@ contactForm?.addEventListener("submit", async (e) => {
     if (res.ok) {
       contactForm.reset();
       status.dataset.state = "success";
-      status.textContent = "Thanks — I'll get back to you within a couple of days.";
+      status.textContent = "Thanks — I'll get back to you soon.";
     } else {
       throw new Error("Form submission failed");
     }
