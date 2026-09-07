@@ -65,7 +65,7 @@
       <div class="section-heading">
         <div>
           <p class="eyebrow">01 / SELECTED WORK</p>
-          <h2>Systems, not demos.</h2>
+          <h2><span class="accent-text">Systems</span>, not demos.</h2>
         </div>
         <p class="section-intro">A project is more useful when you can see the problem, the architecture and what changed after automation.</p>
       </div>
@@ -95,7 +95,7 @@
 
         <article class="project-card" data-project="documind">
           <div class="project-thumb">
-            <img src="assets/documind-workflow.png" alt="Workflow showing a document ingestion pipeline into a vector store and an AI agent that answers questions from those documents">
+            <img class="workflow-contain" src="assets/documind-workflow.png" alt="Workflow showing a document ingestion pipeline into a vector store and an AI agent that answers questions from those documents">
             <div class="thumb-gradient"></div>
             <div class="project-number">02</div>
             <div class="project-type">DOCUMENT AI</div>
@@ -163,7 +163,7 @@
       <div class="section-heading">
         <div>
           <p class="eyebrow">02 / APPROACH</p>
-          <h2>From first call to running system.</h2>
+          <h2>From first call to <span class="accent-text">running system.</span></h2>
         </div>
         <p class="section-intro">Every engagement follows the same shape, whether it's a single workflow or a full agent pipeline.</p>
       </div>
@@ -245,7 +245,28 @@
 
       <div class="case-image">
         <p class="eyebrow">02 / CORE CAPABILITIES</p>
-        <img src="assets/tech-stack.png" alt="Core capabilities used in the automation">
+        <div class="case-flow" aria-label="ZeroTouch core capabilities flow diagram">
+          <div class="flow-node flow-data">
+            <span class="flow-title">Data sources</span>
+            <span class="flow-subtitle">News + trends</span>
+          </div>
+          <span class="flow-arrow" aria-hidden="true">→</span>
+          <div class="flow-node flow-agent">
+            <span class="flow-title">AI agent</span>
+            <span class="flow-subtitle">Analyzes trends</span>
+          </div>
+          <span class="flow-arrow" aria-hidden="true">→</span>
+          <div class="flow-node flow-draft">
+            <span class="flow-title">Tweet draft</span>
+            <span class="flow-subtitle">AI writes copy</span>
+          </div>
+          <span class="flow-arrow" aria-hidden="true">→</span>
+          <div class="flow-node flow-post">
+            <span class="flow-title">Auto-post</span>
+            <span class="flow-subtitle">Published to X</span>
+          </div>
+          <p class="flow-caption">Runs on a schedule — fully automated, no manual steps</p>
+        </div>
       </div>
 
       <div class="case-body troubleshooting">
