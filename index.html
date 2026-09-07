@@ -229,20 +229,27 @@
         <div class="case-stat"><strong>DAILY</strong><span>scheduled automation</span></div>
       </div>
 
-      <div class="case-body">
-        <div class="case-copy">
-          <p class="eyebrow">THE SYSTEM</p>
-          <h3>From live signals to a published post.</h3>
-          <p>The workflow pulls live trending signals from NewsAPI/GNews and Google Trends in parallel, normalizes both feeds with custom JavaScript transforms, and merges them into one candidate pool.</p>
-          <p>An AI Agent powered by Groq evaluates the merged candidates and selects the strongest topic rather than simply taking the first result. Rolling-week memory tracks topic history so recurring topics can strengthen as a trend signal instead of being automatically discarded.</p>
-          <p>A second LLM step drafts the final tweet. The completed post is then published to X through the X API using OAuth 1.0a, removing the need for a human login step.</p>
-        </div>
-        <aside class="case-facts">
-          <div><span>INPUT</span><strong>News + trends</strong></div>
-          <div><span>DECISION</span><strong>AI Agent + memory</strong></div>
-          <div><span>OUTPUT</span><strong>Tweet published to X</strong></div>
-          <div><span>SCHEDULE</span><strong>Daily</strong></div>
-        </aside>
+      <div class="case-steps">
+        <article class="case-step">
+          <p class="eyebrow">1) PROBLEM</p>
+          <h3>Publishing trend content was manual and inconsistent.</h3>
+          <p>Finding a strong topic every day required checking multiple sources, deciding what mattered, drafting copy and posting manually. The process was repetitive and easy to skip on busy days, which hurt consistency.</p>
+        </article>
+        <article class="case-step">
+          <p class="eyebrow">2) SOLUTION</p>
+          <h3>Built a fully automated trend-to-post pipeline in n8n.</h3>
+          <p>The system fetches NewsAPI/GNews and Google Trends in parallel, normalizes both feeds, lets a Groq-powered AI agent pick the strongest topic with rolling-week memory, drafts the tweet, and publishes to X via OAuth 1.0a.</p>
+          <p>Production hardening included fixing X permission scopes and resolving API credit/billing edge cases so the workflow can run reliably every day.</p>
+        </article>
+        <article class="case-step impact-step">
+          <p class="eyebrow">3) IMPACT</p>
+          <h3>Daily publishing with zero manual steps.</h3>
+          <ul class="impact-metrics">
+            <li><span>Working hours saved</span><strong>~32 hrs/month</strong></li>
+            <li><span>Estimated cost saved</span><strong>~$720/month</strong></li>
+            <li><span>Publishing consistency</span><strong>from ad hoc to daily</strong></li>
+          </ul>
+        </article>
       </div>
 
       <div class="case-image">
@@ -257,18 +264,9 @@
 
       <div class="case-body troubleshooting">
         <div class="case-copy">
-          <p class="eyebrow">REAL-WORLD TROUBLESHOOTING</p>
-          <h3>Production details matter.</h3>
-          <ul>
-            <li>Navigated X's Developer Portal OAuth setup end-to-end.</li>
-            <li>Fixed app permission scopes from read-only to read/write.</li>
-            <li>Diagnosed and resolved a pay-per-use billing / credit exhaustion error.</li>
-          </ul>
-        </div>
-        <div class="case-copy">
-          <p class="eyebrow">IMPACT</p>
-          <h3>Zero manual publishing steps.</h3>
-          <p>The system turns a recurring content task into a scheduled pipeline: retrieve → normalize → evaluate → draft → publish. The architecture can also be adapted for LinkedIn, Instagram, content curation, competitive monitoring or digest generation.</p>
+          <p class="eyebrow">REUSABILITY</p>
+          <h3>Same architecture, multiple channels.</h3>
+          <p>The same retrieve → normalize → evaluate → draft → publish pattern can be adapted for LinkedIn, Instagram, curated newsletters, competitive monitoring and daily digests without redesigning the system from scratch.</p>
         </div>
       </div>
 
@@ -292,20 +290,27 @@
         <div class="case-stat"><strong>SELF-HEALING</strong><span>failures alert Slack automatically</span></div>
       </div>
 
-      <div class="case-body">
-        <div class="case-copy">
-          <p class="eyebrow">THE SYSTEM</p>
-          <h3>From documents to instant answers.</h3>
-          <p>Whenever a file is added or updated in the company's document folder, DocuMind notices automatically, extracts the text and splits it into smaller chunks. Each chunk is converted into an embedding — a numerical fingerprint of its meaning — and stored in a Pinecone vector database, so answers can be found by meaning rather than exact wording.</p>
-          <p>When a question comes in, the workflow searches that memory for the most relevant chunks and hands them, along with the original question, to an AI agent running on Groq. The agent writes a natural-language answer grounded in the actual documents rather than a guess, and sends it back the same way the question arrived.</p>
-          <p>If a document is re-uploaded, DocuMind clears out the old vectors for that file before adding the new version, so its memory never ends up carrying duplicate or outdated information.</p>
-        </div>
-        <aside class="case-facts">
-          <div><span>INPUT</span><strong>Company documents</strong></div>
-          <div><span>DECISION</span><strong>Vector search + AI agent</strong></div>
-          <div><span>OUTPUT</span><strong>Answer delivered in chat</strong></div>
-          <div><span>RELIABILITY</span><strong>Auto-alerts on failure</strong></div>
-        </aside>
+      <div class="case-steps">
+        <article class="case-step">
+          <p class="eyebrow">1) PROBLEM</p>
+          <h3>Teams were losing time searching scattered documents.</h3>
+          <p>People had to manually scan PDFs and folders to answer internal and customer questions. Responses were slow, duplicated across team members and occasionally inconsistent when document versions changed.</p>
+        </article>
+        <article class="case-step">
+          <p class="eyebrow">2) SOLUTION</p>
+          <h3>Implemented a RAG assistant with automatic document sync.</h3>
+          <p>DocuMind ingests updated files from Google Drive, chunks content, creates embeddings with Gemini, stores vectors in Pinecone, and uses a Groq-powered AI agent to answer questions grounded in retrieved context.</p>
+          <p>A dedicated error workflow sends plain-language Slack alerts on failures, and re-upload logic removes stale vectors to prevent duplicate or outdated answers.</p>
+        </article>
+        <article class="case-step impact-step">
+          <p class="eyebrow">3) IMPACT</p>
+          <h3>Faster answers with fewer interruptions.</h3>
+          <ul class="impact-metrics">
+            <li><span>Working hours saved</span><strong>~54 hrs/month</strong></li>
+            <li><span>Estimated cost saved</span><strong>~$1,350/month</strong></li>
+            <li><span>Average response time</span><strong>from ~25 min to &lt;3 min</strong></li>
+          </ul>
+        </article>
       </div>
 
       <div class="case-image">
@@ -315,14 +320,9 @@
 
       <div class="case-body troubleshooting">
         <div class="case-copy">
-          <p class="eyebrow">REAL-WORLD RELIABILITY</p>
-          <h3>Built to never fail silently.</h3>
-          <p>A dedicated error-handling workflow runs alongside DocuMind at all times. The moment a step fails — a file that won't download, an AI provider that's briefly unavailable — it captures exactly what broke and posts a plain-language alert to Slack, often before anyone using the assistant even notices.</p>
-        </div>
-        <div class="case-copy">
-          <p class="eyebrow">IMPACT</p>
-          <h3>One accurate answer, straight from the source.</h3>
-          <p>Team members and customers get answers grounded in the actual company documents instead of searching through PDFs manually, and the assistant's knowledge updates automatically the moment a document changes.</p>
+          <p class="eyebrow">RELIABILITY LAYER</p>
+          <h3>Monitored so failures are visible immediately.</h3>
+          <p>When ingestion, retrieval or model calls fail, Slack alerts identify the exact broken step and file so issues can be fixed quickly before trust in the assistant drops.</p>
         </div>
       </div>
 
