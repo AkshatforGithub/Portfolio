@@ -93,11 +93,33 @@
           </div>
         </article>
 
+        <article class="project-card" data-project="relay">
+          <div class="project-thumb">
+            <img class="workflow-contain" src="assets/relay-overview.png" alt="n8n workflow for RELAY: Telegram intake, Brain and Critic agents, memory, and Slack escalation">
+            <div class="thumb-gradient"></div>
+            <div class="project-number">02</div>
+            <div class="project-type">AI SUPPORT AGENT</div>
+            <div class="hover-cover">
+              <span>OPEN CASE STUDY</span>
+              <strong>See how the system works ↗</strong>
+            </div>
+          </div>
+          <div class="project-info">
+            <div>
+              <h3>RELAY</h3>
+              <p>A Telegram support agent that answers from a real knowledge base, verifies its own replies, and opens a tracked Slack ticket when it can't help.</p>
+            </div>
+            <div class="tags">
+              <span>n8n</span><span>Groq</span><span>Pinecone</span><span>Supabase</span><span>Telegram</span><span>Slack</span>
+            </div>
+          </div>
+        </article>
+
         <article class="project-card" data-project="documind">
           <div class="project-thumb">
             <img class="workflow-contain" src="assets/documind-workflow.png" alt="Workflow showing a document ingestion pipeline into a vector store and an AI agent that answers questions from those documents">
             <div class="thumb-gradient"></div>
-            <div class="project-number">02</div>
+            <div class="project-number">03</div>
             <div class="project-type">DOCUMENT AI</div>
             <div class="hover-cover">
               <span>OPEN CASE STUDY</span>
@@ -111,48 +133,6 @@
             </div>
             <div class="tags">
               <span>n8n</span><span>Pinecone</span><span>Gemini Embeddings</span><span>Groq</span><span>Slack</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card placeholder">
-          <div class="project-thumb">
-            <div class="placeholder-visual">
-              <span class="project-number">03</span>
-              <span class="project-type">NEXT BUILD</span>
-              <h3>Another system.<br>Another outcome.</h3>
-              <p>Keep this space for another real workflow, agent or AI product once it has a strong case study.</p>
-              <span class="placeholder-arrow">↗</span>
-            </div>
-          </div>
-          <div class="project-info">
-            <div>
-              <h3>Reserved for your next case study</h3>
-              <p>Add the next shipped automation here with architecture, reliability notes and measurable impact.</p>
-            </div>
-            <div class="tags">
-              <span>Workflow</span><span>Agent</span><span>Automation</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card placeholder">
-          <div class="project-thumb">
-            <div class="placeholder-visual">
-              <span class="project-number">04</span>
-              <span class="project-type">COMING NEXT</span>
-              <h3>One more system.<br>One more result.</h3>
-              <p>Use this space for the next workflow, AI agent or product case study once it is ready to show.</p>
-              <span class="placeholder-arrow">↗</span>
-            </div>
-          </div>
-          <div class="project-info">
-            <div>
-              <h3>Reserved for another build</h3>
-              <p>Keep this card ready for a future automation with a measurable outcome and a clear business story.</p>
-            </div>
-            <div class="tags">
-              <span>n8n</span><span>AI</span><span>Systems</span>
             </div>
           </div>
         </article>
@@ -289,7 +269,7 @@
       <button class="close-case" aria-label="Close case study">×</button>
       <div class="case-hero">
         <div>
-          <p class="eyebrow">CASE STUDY / 02</p>
+          <p class="eyebrow">CASE STUDY / 03</p>
           <h2>DocuMind<br><em>Ask your documents.</em></h2>
           <p class="case-lead">A retrieval-augmented assistant that reads a company's documents once and answers questions about them in plain language, the way you'd ask a colleague.</p>
           <div class="tags"><span>n8n</span><span>Google Drive</span><span>Pinecone</span><span>Gemini Embeddings</span><span>Groq</span><span>Slack</span></div>
@@ -335,6 +315,103 @@
 
       <div class="case-footer">
         <span>BUILT WITH n8n + RAG</span>
+        <a href="#contact">Let's talk ↗</a>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="case-study" id="case-relay">
+    <div class="case-shell">
+      <button class="close-case" aria-label="Close case study">×</button>
+      <div class="case-hero">
+        <div>
+          <p class="eyebrow">CASE STUDY / 02</p>
+          <h2><em>RELAY</em></h2>
+          <p class="case-lead">A self-verifying AI support agent for Telegram: it answers from a real knowledge base, checks that answer against evidence, and escalates to a human with a tracked Slack ticket when it can't help.</p>
+          <div class="tags"><span>n8n</span><span>Groq</span><span>Pinecone</span><span>Gemini Embeddings</span><span>Supabase</span><span>Telegram</span><span>Slack</span></div>
+        </div>
+        <div class="case-stat"><strong>BRAIN + CRITIC</strong><span>two-model verification before send</span></div>
+      </div>
+
+      <div class="case-steps">
+        <article class="case-step">
+          <p class="eyebrow">1) PROBLEM</p>
+          <h3>Support bots either hallucinate or fail silently.</h3>
+          <p>A single LLM call invents policies and order statuses with confidence. Duplicate webhooks double-reply, bursts drain API budget, and a real escalation gets duplicated because the bot doesn't know it already raised a ticket.</p>
+        </article>
+        <article class="case-step">
+          <p class="eyebrow">2) SOLUTION</p>
+          <h3>Built a Brain + Critic pipeline with human handoff in Slack.</h3>
+          <p>The conversational workflow receives a Telegram message, dedups and rate-limits it, retrieves memory, drafts a grounded answer with four tools only, then lets an independent Critic approve, rewrite, or escalate.</p>
+          <p>If it can't help, RELAY opens a tracked Slack ticket and a teammate closes it with a Slack slash command — no separate admin panel.</p>
+        </article>
+        <article class="case-step impact-step">
+          <p class="eyebrow">3) IMPACT</p>
+          <h3>Verified answers, clean escalations.</h3>
+          <ul class="impact-metrics">
+            <li><span>Resolved without a human</span><strong>89%</strong></li>
+            <li><span>Incorrect order-status replies</span><strong>0 across the test set</strong></li>
+            <li><span>Average response time</span><strong>~3.1s end to end</strong></li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="case-image">
+        <p class="eyebrow">01 / WORKFLOW</p>
+        <div class="slideshow" data-slideshow>
+          <div class="slideshow-frame">
+            <img class="is-active" src="assets/relay-overview.png" alt="Full RELAY n8n workflow overview" data-caption="Full system overview">
+            <img src="assets/relay-dedup.png" alt="Trigger, dedup and rate limiting nodes" data-caption="Trigger, dedup &amp; rate limiting">
+            <img src="assets/relay-brain.png" alt="Workflow Brain agent with knowledge base, order lookup and ticket tools" data-caption="Workflow Brain — primary agent">
+            <img src="assets/relay-critic.png" alt="Independent Critic model verifying the Brain draft" data-caption="Critic — verification pass">
+            <img src="assets/relay-escalation.png" alt="Escalation path creating a Slack ticket" data-caption="Escalation subsystem">
+            <button type="button" class="slideshow-nav slideshow-prev" data-slideshow-prev aria-label="Previous slide">←</button>
+            <button type="button" class="slideshow-nav slideshow-next" data-slideshow-next aria-label="Next slide">→</button>
+          </div>
+          <div class="slideshow-bar">
+            <p class="slideshow-caption">Full system overview</p>
+            <span class="slideshow-count">01 / 05</span>
+          </div>
+          <div class="slideshow-dots" role="tablist" aria-label="Workflow slides"></div>
+        </div>
+      </div>
+
+      <div class="case-image">
+        <p class="eyebrow">02 / CORE CAPABILITIES</p>
+        <div class="case-flow" aria-label="RELAY core capabilities flow diagram">
+          <div class="flow-node flow-data">
+            <span class="flow-title">Telegram</span>
+            <span class="flow-subtitle">Dedup + rate limit</span>
+          </div>
+          <span class="flow-arrow" aria-hidden="true">→</span>
+          <div class="flow-node flow-agent">
+            <span class="flow-title">Brain</span>
+            <span class="flow-subtitle">Grounded tools only</span>
+          </div>
+          <span class="flow-arrow" aria-hidden="true">→</span>
+          <div class="flow-node flow-draft">
+            <span class="flow-title">Critic</span>
+            <span class="flow-subtitle">Evidence check</span>
+          </div>
+          <span class="flow-arrow" aria-hidden="true">→</span>
+          <div class="flow-node flow-post">
+            <span class="flow-title">Reply / Slack</span>
+            <span class="flow-subtitle">Send or escalate</span>
+          </div>
+          <p class="flow-caption">Every reply is verified before it ships — unresolved issues become tracked Slack tickets</p>
+        </div>
+      </div>
+
+      <div class="case-body troubleshooting">
+        <div class="case-copy">
+          <p class="eyebrow">RELIABILITY LAYER</p>
+          <h3>Built for noisy webhooks, not just the happy path.</h3>
+          <p>Webhook dedup, fail-open rate limiting, ticket-already-open checks, and fallback Telegram replies mean a crash or API blip degrades to an apology — never silence, never a duplicate ticket, never a second “we're escalating.”</p>
+        </div>
+      </div>
+
+      <div class="case-footer">
+        <span>BUILT WITH n8n + AI</span>
         <a href="#contact">Let's talk ↗</a>
       </div>
     </div>
